@@ -14,7 +14,7 @@ class App extends Component {
   switchJediName = (newName) => {
     this.setState({
       jedies: [
-        {name : "Ben Kenobi", age : 42},
+        {name : newName, age : 42},
         {name : "Master Yoda", age : 900},
         {name : "Mace Windu", age : 37}
        ],
@@ -26,14 +26,14 @@ class App extends Component {
     return (
       <div>
         <h1>Hello there!</h1>
-        <button onClick={this.switchJediName}>Get Jedi info during the Empire's time!</button>
+        <button onClick={() => this.switchJediName("Obi")}>Get Jedi info during the Empire's time!</button>
         <Jedi 
           name = {this.state.jedies[0].name} 
-          age={this.state.jedies[0].age} 
-          click = {this.switchJediName}/>
+          age={this.state.jedies[0].age} />
         <Jedi 
           name = {this.state.jedies[1].name} 
-          age={this.state.jedies[1].age} />
+          age={this.state.jedies[1].age} 
+          click = {this.switchJediName.bind(this, "Ben Kenobi")}/>
         <Jedi 
           name = {this.state.jedies[2].name} 
           age={this.state.jedies[2].age} />
