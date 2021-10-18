@@ -22,6 +22,16 @@ class App extends Component {
     })
   }
 
+  jediNameChangeHandler = (event) => {
+    this.setState( {
+      jedies: [
+        {name : "Obi-Wan", age : 42},
+        {name : event.target.value, age : 900},
+        {name : "Mace Windu", age : 37}
+       ]
+    })
+  }
+
   render(){
     return (
       <div>
@@ -29,11 +39,12 @@ class App extends Component {
         <button onClick={() => this.switchJediName("Obi")}>Get Jedi info during the Empire's time!</button>
         <Jedi 
           name = {this.state.jedies[0].name} 
-          age={this.state.jedies[0].age} />
+          age={this.state.jedies[0].age}
+          click = {this.switchJediName.bind(this, "Ben Kenobi")} />
         <Jedi 
           name = {this.state.jedies[1].name} 
           age={this.state.jedies[1].age} 
-          click = {this.switchJediName.bind(this, "Ben Kenobi")}/>
+          changed = {this.jediNameChangeHandler}/>
         <Jedi 
           name = {this.state.jedies[2].name} 
           age={this.state.jedies[2].age} />
