@@ -5,7 +5,9 @@ function App() {
   return (
     <div>
       <h1>Hello there!</h1>
-      <Person/>
+      <Person name="Obi-Wan Kenobi" age="24" />
+      <Person name="Master Yoda" age="860">Funny this is...</Person>
+      <Person name="Mace Windu" age="37" />
     </div>
   );
 }

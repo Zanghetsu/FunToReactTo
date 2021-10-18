@@ -1,7 +1,12 @@
 import React from "react"
+import { Children } from "react";
 
-const person = () => {
-    return <p1>I'm Obi-Wan Kenobi (later known as the non describeble Ben Kenobi), and spent time as a jedi for {Math.floor(Math.random()*30)} years.</p1>
-}
+const person = (props) => {
+    return (
+        <div>
+            <p1>I'm {props.name}, and spent time as a jedi for {props.age} years.</p1>
+            <p1>{props.children}</p1>
+        </div>
+    )}
 
 export default person;
