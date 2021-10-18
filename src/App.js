@@ -8,7 +8,8 @@ class App extends Component {
       {name : "Obi-Wan Kenobi", age : 24},
       {name : "Master Yoda", age : 860},
       {name : "Mace Windu", age : 37}
-     ]
+     ],
+    showJediMasters: false
   }
 
   switchJediName = (newName) => {
@@ -32,6 +33,11 @@ class App extends Component {
     })
   }
 
+  toggleJediMasters = () => {
+      const doesShow = this.state.showJediMasters;
+      this.setState({showJediMasters : !doesShow})
+  }
+
   render(){
 
     const styleButton = {
@@ -46,18 +52,21 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Hello there!</h1>
-        <button style={styleButton} onClick={() => this.switchJediName("Ben Kenobi")}>Get Jedi info during the Empire's time!</button>
-        <Jedi 
-          name = {this.state.jedies[0].name} 
-          age={this.state.jedies[0].age}
-          click = {this.switchJediName.bind(this, "Obi")} />
-        <Jedi 
-          name = {this.state.jedies[1].name} 
-          age={this.state.jedies[1].age} 
-          changed = {this.jediNameChangeHandler}/>
-        <Jedi 
-          name = {this.state.jedies[2].name} 
-          age={this.state.jedies[2].age} />
+        <button style={styleButton} onClick={() => this.toggleJediMasters()}>Get Jedi Masters!</button>
+        { this.state.showJediMasters ? 
+          <div>
+            <Jedi 
+              name = {this.state.jedies[0].name} 
+              age={this.state.jedies[0].age}
+              click = {this.switchJediName.bind(this, "Obi")} />
+            <Jedi 
+              name = {this.state.jedies[1].name} 
+              age={this.state.jedies[1].age} 
+              changed = {this.jediNameChangeHandler}/>
+            <Jedi 
+              name = {this.state.jedies[2].name} 
+              age={this.state.jedies[2].age} />
+          </div> : null}
       </div>
     );
   }
