@@ -1,6 +1,6 @@
 import React,{ Component } from 'react';
 import './App.css';
-import Person from './Person/Person';
+import Jedi from './Jedi/Jedi';
 
 class App extends Component {
   render(){
@@ -8,9 +8,9 @@ class App extends Component {
       <div>
         <h1>Hello there!</h1>
         <button>Get Jedi!</button>
-        <Person name="Obi-Wan Kenobi" age="24" />
-        <Person name="Master Yoda" age="860">Funny this is...</Person>
-        <Person name="Mace Windu" age="37" />
+        <Jedi name="Obi-Wan Kenobi" age="24" />
+        <Jedi name="Master Yoda" age="860">Funny this is...</Jedi>
+        <Jedi name="Mace Windu" age="37" />
       </div>
     );
   }
