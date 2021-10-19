@@ -1,7 +1,7 @@
 
 import React,{ Component } from 'react';
 import styleClasses from './App.module.css';
-import Jedi from './Jedi/Jedi';
+import Jedi from '../Components/JediMasters/Jedi/Jedi';
 
 
 class App extends Component {
