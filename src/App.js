@@ -1,5 +1,6 @@
 import React,{ Component } from 'react';
 import './App.css';
+import person from './Jedi/Jedi';
 import Jedi from './Jedi/Jedi';
 
 class App extends Component {
@@ -23,15 +24,14 @@ class App extends Component {
     })
   }
 
-  jediNameChangeHandler = (event) => {
-    this.setState( {
-      jedies: [
-        {name : "Obi-Wan", age : 42},
-        {name : event.target.value, age : 900},
-        {name : "Mace Windu", age : 37}
-       ]
-    })
+
+  removeJediMaster = (jediMasterIndex) => {
+    const jediMasters = this.state.jedies
+    jediMasters.splice(jediMasterIndex, 1)
+    this.setState({jedies : jediMasters})
+
   }
+
 
   toggleJediMasters = () => {
       const doesShow = this.state.showJediMasters;
@@ -52,8 +52,8 @@ class App extends Component {
 
     if(this.state.showJediMasters){
       jediMasters = <div>
-                      {this.state.jedies.map(jedi => {
-                          return <Jedi name = {jedi.name} age={jedi.age}/>
+                      {this.state.jedies.map((jedi, index) => {
+                          return <Jedi click={() => this.removeJediMaster(index)} name = {jedi.name} age={jedi.age}/>
                       })}
                     </div>
     }
