@@ -17,14 +17,15 @@ const StyledDiv = styled.div`
                                 }
                             `
 
-
-return (
-    //<div className="Jedi" style={jediStyle}>
-    <StyledDiv>
-        <p onClick = {props.click}>I'm {props.name}, and spent time as a jedi for {props.age} years.</p>
-        <p>{props.children}</p>
-        <input type="text" onChange = {props.changed} value={props.name} />
-    </StyledDiv>
-)}
+const jedi = (props) =>{
+    return (
+        //<div className="Jedi" style={jediStyle}>
+        <StyledDiv>
+            <p onClick = {props.click}>I'm {props.name}, and spent time as a jedi for {props.age} years.</p>
+            <p>{props.children}</p>
+            <input type="text" onChange = {props.changed} value={props.name} />
+        </StyledDiv>
+    )
+}
 
 export default jedi;
