@@ -2,6 +2,22 @@
 import React,{ Component } from 'react';
 import './App.css';
 import Jedi from './Jedi/Jedi';
+import styled from 'styled-components';
+
+const StyledButton = styled.button `
+                                      font: inherit;
+                                      border: 2px solid black;
+                                      background-color: white;
+                                      borderColor: red;
+                                      padding: 33px;
+                                      cursor: pointer;
+
+                                      &:hover {
+                                        background-color: lightgreen;
+                                        textColor : white;
+                                      }
+                                    `;
+
 
 class App extends Component {
   state = {
@@ -94,7 +110,7 @@ class App extends Component {
       <div className="App">
         <h1>Hello there!</h1>
         <p className={classes.join(' ')}>Styling experiment</p>
-        <button style = {styleButton} onClick={() => this.toggleJediMasters()}>Get Jedi Masters!</button>
+        <StyledButton onClick={() => this.toggleJediMasters()}>Get Jedi Masters!</StyledButton>
         { jediMasters}
       </div>
 
