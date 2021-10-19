@@ -5,17 +5,7 @@ import Jedi from './Jedi/Jedi';
 import styled from 'styled-components';
 
 const StyledButton = styled.button `
-                                      font: inherit;
-                                      border: 2px solid black;
-                                      background-color: ${props => props.alt ? 'red':'green'};
-                                      borderColor: red;
-                                      padding: 33px;
-                                      cursor: pointer;
-
-                                      &:hover {
-                                        background-color: ${props => props.alt ? 'salmon':'lightgreen'};
-                                        textColor : white;
-                                      }
+                                      
                                     `;
 
 
@@ -110,7 +100,7 @@ class App extends Component {
       <div className="App">
         <h1>Hello there!</h1>
         <p className={classes.join(' ')}>Styling experiment</p>
-        <StyledButton alt={this.state.showJediMasters} onClick={() => this.toggleJediMasters()}>Get Jedi Masters!</StyledButton>
+        <button className="button" onClick={() => this.toggleJediMasters()}>Get Jedi Masters!</button>
         { jediMasters}
       </div>
 
