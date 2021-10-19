@@ -48,25 +48,29 @@ class App extends Component {
       cursor: 'pointer'
     }
 
+    let jediMasters =null;
+
+    if(this.state.showJediMasters){
+      jediMasters = <div>
+                      <Jedi 
+                        name = {this.state.jedies[0].name} 
+                        age={this.state.jedies[0].age}
+                        click = {this.switchJediName.bind(this, "Obi")} />
+                      <Jedi 
+                        name = {this.state.jedies[1].name} 
+                        age={this.state.jedies[1].age} 
+                        changed = {this.jediNameChangeHandler}/>
+                      <Jedi 
+                        name = {this.state.jedies[2].name} 
+                        age={this.state.jedies[2].age} />
+                    </div>
+    }
 
     return (
       <div className="App">
         <h1>Hello there!</h1>
         <button style={styleButton} onClick={() => this.toggleJediMasters()}>Get Jedi Masters!</button>
-        { this.state.showJediMasters ? 
-          <div>
-            <Jedi 
-              name = {this.state.jedies[0].name} 
-              age={this.state.jedies[0].age}
-              click = {this.switchJediName.bind(this, "Obi")} />
-            <Jedi 
-              name = {this.state.jedies[1].name} 
-              age={this.state.jedies[1].age} 
-              changed = {this.jediNameChangeHandler}/>
-            <Jedi 
-              name = {this.state.jedies[2].name} 
-              age={this.state.jedies[2].age} />
-          </div> : null}
+        { jediMasters}
       </div>
     );
   }
