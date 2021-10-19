@@ -1,32 +1,34 @@
 import React,{ Component } from 'react';
 import './App.css';
-import person from './Jedi/Jedi';
 import Jedi from './Jedi/Jedi';
 
 class App extends Component {
   state = {
     jedies: [
-      {name : "Obi-Wan Kenobi", age : 24},
-      {name : "Master Yoda", age : 860},
-      {name : "Mace Windu", age : 37}
+      {id:'0', name : "Obi-Wan Kenobi", age : 24},
+      {id:'1', name : "Master Yoda", age : 860},
+      {id:'2', name : "Mace Windu", age : 37}
      ],
     showJediMasters: false
   }
 
-  switchJediName = (newName) => {
-    this.setState({
-      jedies: [
-        {id: '0', name : newName, age : 42},
-        {id: '1', name : "Master Yoda", age : 900},
-        {id: '2', name : "Mace Windu", age : 37}
-       ],
-       otherState: 'some other value'
+  switchJediName = (event, id) => {
+    const jediIndex = this.state.jedies.findIndex(j => {
+      return j.id === id;
     })
+
+    const jedi = {...this.state.jedies[jediIndex]}
+
+    jedi.name = event.target.value
+
+    const jedies = [...this.state.jedies]
+    jedies[jediIndex] = jedi;
+    
+    this.setState({ jedies : jedies })
   }
 
 
   removeJediMaster = (jediMasterIndex) => {
-    //const jediMasters = this.state.jedies.slice()
     const jediMasters =[...this.state.jedies]
     jediMasters.splice(jediMasterIndex, 1)
     this.setState({jedies : jediMasters})
@@ -57,6 +59,7 @@ class App extends Component {
                           return <Jedi click={() => this.removeJediMaster(index)} 
                           name = {jedi.name} 
                           age={jedi.age}
+                          changed = {(event) => this.switchJediName(event, jedi.id)}
                           key={index}/>
                       })}
                     </div> 
