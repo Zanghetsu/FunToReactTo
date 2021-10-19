@@ -7,13 +7,13 @@ import styled from 'styled-components';
 const StyledButton = styled.button `
                                       font: inherit;
                                       border: 2px solid black;
-                                      background-color: white;
+                                      background-color: ${props => props.alt ? 'red':'green'};
                                       borderColor: red;
                                       padding: 33px;
                                       cursor: pointer;
 
                                       &:hover {
-                                        background-color: lightgreen;
+                                        background-color: ${props => props.alt ? 'salmon':'lightgreen'};
                                         textColor : white;
                                       }
                                     `;
@@ -110,7 +110,7 @@ class App extends Component {
       <div className="App">
         <h1>Hello there!</h1>
         <p className={classes.join(' ')}>Styling experiment</p>
-        <StyledButton onClick={() => this.toggleJediMasters()}>Get Jedi Masters!</StyledButton>
+        <StyledButton alt={this.state.showJediMasters} onClick={() => this.toggleJediMasters()}>Get Jedi Masters!</StyledButton>
         { jediMasters}
       </div>
 
