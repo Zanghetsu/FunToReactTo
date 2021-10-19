@@ -52,17 +52,9 @@ class App extends Component {
 
     if(this.state.showJediMasters){
       jediMasters = <div>
-                      <Jedi 
-                        name = {this.state.jedies[0].name} 
-                        age={this.state.jedies[0].age}
-                        click = {this.switchJediName.bind(this, "Obi")} />
-                      <Jedi 
-                        name = {this.state.jedies[1].name} 
-                        age={this.state.jedies[1].age} 
-                        changed = {this.jediNameChangeHandler}/>
-                      <Jedi 
-                        name = {this.state.jedies[2].name} 
-                        age={this.state.jedies[2].age} />
+                      {this.state.jedies.map(jedi => {
+                          return <Jedi name = {jedi.name} age={jedi.age}/>
+                      })}
                     </div>
     }
 
