@@ -2,6 +2,7 @@
 import React,{ Component } from 'react';
 import './App.css';
 import Jedi from './Jedi/Jedi';
+import Radium from 'radium';
 
 class App extends Component {
   state = {
@@ -50,7 +51,11 @@ class App extends Component {
       backgroundColor: 'white',
       borderColor: 'red',
       padding:'33px',
-      cursor: 'pointer'
+      cursor: 'pointer',
+      ':hover':{
+        backgroundColor: 'lightgreen',
+        textColor : 'white'
+      }
     }
 
     let classes = []
@@ -79,6 +84,10 @@ class App extends Component {
       );
 
       styleButton.backgroundColor ='green'
+      styleButton[':hover'] ={
+        backgroundColor: 'lightgreen',
+        textColor : 'white'
+      }
     }
 
 
@@ -93,4 +102,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Radium(App);
