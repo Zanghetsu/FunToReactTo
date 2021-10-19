@@ -16,9 +16,9 @@ class App extends Component {
   switchJediName = (newName) => {
     this.setState({
       jedies: [
-        {name : newName, age : 42},
-        {name : "Master Yoda", age : 900},
-        {name : "Mace Windu", age : 37}
+        {id: '0', name : newName, age : 42},
+        {id: '1', name : "Master Yoda", age : 900},
+        {id: '2', name : "Mace Windu", age : 37}
        ],
        otherState: 'some other value'
     })
@@ -54,9 +54,12 @@ class App extends Component {
     if(this.state.showJediMasters){
       jediMasters = <div>
                       {this.state.jedies.map((jedi, index) => {
-                          return <Jedi click={() => this.removeJediMaster(index)} name = {jedi.name} age={jedi.age}/>
+                          return <Jedi click={() => this.removeJediMaster(index)} 
+                          name = {jedi.name} 
+                          age={jedi.age}
+                          key={index}/>
                       })}
-                    </div>
+                    </div> 
     }
 
     return (
