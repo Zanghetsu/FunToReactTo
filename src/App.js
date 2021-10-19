@@ -2,7 +2,6 @@
 import React,{ Component } from 'react';
 import './App.css';
 import Jedi from './Jedi/Jedi';
-import Radium, { StyleRoot } from 'radium';
 
 class App extends Component {
   state = {
@@ -92,16 +91,15 @@ class App extends Component {
 
 
     return (
-      <StyleRoot>
       <div className="App">
         <h1>Hello there!</h1>
         <p className={classes.join(' ')}>Styling experiment</p>
         <button style = {styleButton} onClick={() => this.toggleJediMasters()}>Get Jedi Masters!</button>
         { jediMasters}
       </div>
-      </StyleRoot>
+
     );
   }
 }
 
-export default Radium(App);
+export default App;
