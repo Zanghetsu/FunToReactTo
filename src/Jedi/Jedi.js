@@ -1,30 +1,15 @@
 import React from "react"
-//import './Jedi.css'
-import styled from "styled-components"
+import jediCssStyles from './Jedi.module.css'
 
-
-const StyledDiv = styled.div`
-                                width: 60%;
-                                margin: 16px auto;
-                                border: 1px solid #eee;
-                                box-shadow: 0 2px 3px #ccc;
-                                padding: 16px;
-                                text-align: center;
-
-                                {
-                                    '@media (min-width: 500px)':{
-                                        width : '450px'
-                                }
-                            `
 
 const jedi = (props) =>{
     return (
         //<div className="Jedi" style={jediStyle}>
-        <StyledDiv>
+        <div className={jediCssStyles.Jedi}>
             <p onClick = {props.click}>I'm {props.name}, and spent time as a jedi for {props.age} years.</p>
             <p>{props.children}</p>
             <input type="text" onChange = {props.changed} value={props.name} />
-        </StyledDiv>
+        </div>
     )
 }
 

@@ -1,12 +1,7 @@
 
 import React,{ Component } from 'react';
-import './App.css';
+import styleClasses from './App.module.css';
 import Jedi from './Jedi/Jedi';
-import styled from 'styled-components';
-
-const StyledButton = styled.button `
-                                      
-                                    `;
 
 
 class App extends Component {
@@ -50,26 +45,15 @@ class App extends Component {
 
   render(){
 
-    const styleButton = {
-      font: 'inherit',
-      border: '2px solid black',
-      backgroundColor: 'white',
-      borderColor: 'red',
-      padding:'33px',
-      cursor: 'pointer',
-      ':hover':{
-        backgroundColor: 'lightgreen',
-        textColor : 'white'
-      }
-    }
+    const buttonStyle = [styleClasses.Button]
 
     let classes = []
 
     if(this.state.jedies.length <= 2){
-      classes.push('red')
+      classes.push(styleClasses.red)
     }
     if(this.state.jedies.length <= 1){
-      classes.push('bold')
+      classes.push(styleClasses.bold)
     }
 
 
@@ -87,20 +71,16 @@ class App extends Component {
                       })}
                     </div>
       );
+      buttonStyle.push(styleClasses.red)
 
-      styleButton.backgroundColor ='green'
-      styleButton[':hover'] ={
-        backgroundColor: 'lightgreen',
-        textColor : 'white'
-      }
     }
 
 
     return (
-      <div className="App">
+      <div className={styleClasses.App}>
         <h1>Hello there!</h1>
         <p className={classes.join(' ')}>Styling experiment</p>
-        <button className="button" onClick={() => this.toggleJediMasters()}>Get Jedi Masters!</button>
+        <button className={buttonStyle.join(' ')} onClick={() => this.toggleJediMasters()}>Get Jedi Masters!</button>
         { jediMasters}
       </div>
 
