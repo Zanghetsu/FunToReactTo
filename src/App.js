@@ -26,7 +26,8 @@ class App extends Component {
 
 
   removeJediMaster = (jediMasterIndex) => {
-    const jediMasters = this.state.jedies
+    //const jediMasters = this.state.jedies.slice()
+    const jediMasters =[...this.state.jedies]
     jediMasters.splice(jediMasterIndex, 1)
     this.setState({jedies : jediMasters})
 
