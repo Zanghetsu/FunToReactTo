@@ -1,3 +1,4 @@
+
 import React,{ Component } from 'react';
 import './App.css';
 import Jedi from './Jedi/Jedi';
@@ -44,17 +45,29 @@ class App extends Component {
   render(){
 
     const styleButton = {
-      backgroudColor:'white',
       font: 'inherit',
-      border: '1px solid black',
-      padding:'8px',
+      border: '2px solid black',
+      backgroundColor: 'white',
+      borderColor: 'red',
+      padding:'33px',
       cursor: 'pointer'
     }
 
-    let jediMasters =null;
+    let classes = []
+
+    if(this.state.jedies.length <= 2){
+      classes.push('red')
+    }
+    if(this.state.jedies.length <= 1){
+      classes.push('bold')
+    }
+
+
+
+    let jediMasters = null;
 
     if(this.state.showJediMasters){
-      jediMasters = <div>
+      jediMasters =( <div>
                       {this.state.jedies.map((jedi, index) => {
                           return <Jedi click={() => this.removeJediMaster(index)} 
                           name = {jedi.name} 
@@ -62,13 +75,18 @@ class App extends Component {
                           changed = {(event) => this.switchJediName(event, jedi.id)}
                           key={index}/>
                       })}
-                    </div> 
+                    </div>
+      );
+
+      styleButton.backgroundColor ='green'
     }
+
 
     return (
       <div className="App">
         <h1>Hello there!</h1>
-        <button style={styleButton} onClick={() => this.toggleJediMasters()}>Get Jedi Masters!</button>
+        <p className={classes.join(' ')}>Styling experiment</p>
+        <button style = {styleButton} onClick={() => this.toggleJediMasters()}>Get Jedi Masters!</button>
         { jediMasters}
       </div>
     );
