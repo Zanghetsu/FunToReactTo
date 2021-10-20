@@ -6,6 +6,13 @@ import Cockpit from '../Components/Cockpit/Cockpit';
 
 
 class App extends Component {
+  
+  constructor(props){
+    super(props)
+    console.log('[App.js] constructor')
+
+  }
+  
   state = {
     jedies: [
       {id:'0', name : "Obi-Wan Kenobi", age : 24},
@@ -14,6 +21,16 @@ class App extends Component {
      ],
     showJediMasters: false
   }
+
+  static getDerivedStateFromProps(props, state){
+    console.log('[App.js] getDerivedStateFromProps', props)
+    return state;
+  }
+
+  componentDidMount(){
+    console.log('Component did mount')
+  }
+
 
   switchJediName = (event, id) => {
     const jediIndex = this.state.jedies.findIndex(j => {
@@ -46,6 +63,8 @@ class App extends Component {
 
   render(){
 
+    console.log('[App.js] render')
+
     let jediMasters = null;
 
     if(this.state.showJediMasters){
@@ -62,7 +81,8 @@ class App extends Component {
 
     return (
       <div className={styleClasses.App}>
-      <Cockpit  showJediMasters = {!this.state.showJediMasters} 
+      <Cockpit  title={this.props.appTitle}
+                showJediMasters = {!this.state.showJediMasters} 
                 jedies={this.state.jedies}
                 click = {this.toggleJediMasters}/>
        { jediMasters}

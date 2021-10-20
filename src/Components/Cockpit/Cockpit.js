@@ -19,8 +19,8 @@ const cockpit = ( props ) => {
     }
 
     return( 
-        <div className={CockpitCss.Cockpit}>
-            <h1>Hello there!</h1>
+        <div >
+            <h1>{props.title}</h1>
             <p className={classes.join(' ')}>Styling experiment</p>
             <button className={buttonStyle} onClick={props.click}>Get Jedi Masters!</button>
         </div>

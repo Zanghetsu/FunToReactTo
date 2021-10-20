@@ -3,6 +3,7 @@ import jediCssStyles from './Jedi.module.css'
 
 
 const jedi = (props) =>{
+    console.log('[Jedi.js] rendering...')
     return (
         //<div className="Jedi" style={jediStyle}>
         <div className={jediCssStyles.Jedi}>
