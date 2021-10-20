@@ -1,7 +1,7 @@
 
 import React,{ Component } from 'react';
 import styleClasses from './App.module.css';
-import Jedi from '../Components/JediMasters/Jedi/Jedi';
+import JediMasters from '../Components/JediMasters/JediMasters'
 
 
 class App extends Component {
@@ -61,18 +61,16 @@ class App extends Component {
     let jediMasters = null;
 
     if(this.state.showJediMasters){
-      jediMasters =( <div>
-                      {this.state.jedies.map((jedi, index) => {
-                          return <Jedi click={() => this.removeJediMaster(index)} 
-                          name = {jedi.name} 
-                          age={jedi.age}
-                          changed = {(event) => this.switchJediName(event, jedi.id)}
-                          key={index}/>
-                      })}
-                    </div>
-      );
-      buttonStyle.push(styleClasses.red)
+        jediMasters=(
+                      <div>
+                        <JediMasters  jedies ={this.state.jedies} 
+                                      click={this.removeJediMaster} 
+                                      changed={this.switchJediName}
+                                      />
+                      </div>
+                    )
 
+        buttonStyle.push(styleClasses.red)
     }
 
 
