@@ -2,6 +2,7 @@
 import React,{ Component } from 'react';
 import styleClasses from './App.module.css';
 import JediMasters from '../Components/JediMasters/JediMasters'
+import Cockpit from '../Components/Cockpit/Cockpit';
 
 
 class App extends Component {
@@ -45,19 +46,6 @@ class App extends Component {
 
   render(){
 
-    const buttonStyle = [styleClasses.Button]
-
-    let classes = []
-
-    if(this.state.jedies.length <= 2){
-      classes.push(styleClasses.red)
-    }
-    if(this.state.jedies.length <= 1){
-      classes.push(styleClasses.bold)
-    }
-
-
-
     let jediMasters = null;
 
     if(this.state.showJediMasters){
@@ -69,17 +57,15 @@ class App extends Component {
                                       />
                       </div>
                     )
-
-        buttonStyle.push(styleClasses.red)
     }
 
 
     return (
       <div className={styleClasses.App}>
-        <h1>Hello there!</h1>
-        <p className={classes.join(' ')}>Styling experiment</p>
-        <button className={buttonStyle.join(' ')} onClick={() => this.toggleJediMasters()}>Get Jedi Masters!</button>
-        { jediMasters}
+      <Cockpit  showJediMasters = {!this.state.showJediMasters} 
+                jedies={this.state.jedies}
+                click = {this.toggleJediMasters}/>
+       { jediMasters}
       </div>
 
     );

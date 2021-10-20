@@ -2,36 +2,3 @@
   text-align: center;
 }
 
-.red {
-  color: red
-}
-
-.bold{
-  font-weight: bold;
-}
-
-.Button{
-  font: inherit;
-  border: 2px solid black;
-  background-color: lightgray;
-  border-color: black;
-  padding: 33px;
-  cursor: pointer;
-}
-
-.Button:hover {
-  background-color: lightgreen;
-  text-decoration-color: white;
-}
-
-.Button.Red {
-  background-color: red;
-}
-
-.Button.Red:hover{
-  background-color: salmon;
-}
-
-.Button.Bold{
-  font-weight: bold;
-}
